@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="77px" viewBox="0 0 77 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>admob</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.3024554%" id="linearGradient-1">
+            <stop stop-color="#404040" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#404040" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Mobile" transform="translate(-271.000000, -248.000000)" fill-rule="nonzero">
+            <g id="admob" transform="translate(271.000000, 248.000000)">
+                <path d="M38.39487,52.49466 C30.65937,52.49466 24.38847,46.22376 24.38847,38.48826 C24.38847,30.75246 30.65937,24.48186 38.39487,24.48186 L76.79997,24.48186 L52.54137,6e-05 L38.39487,6e-05 C17.18997,6e-05 -3e-05,17.18976 -3e-05,38.39466 C-3e-05,59.59986 17.18997,76.78986 38.39487,76.78986 L38.39487,52.49466 Z" id="Path" fill="#DE564A"></path>
+                <polygon id="Path" fill="#465B65" points="52.4013 76.7898 76.8 76.7898 76.8 24.4818 52.4013 24.4818"></polygon>
+                <polygon id="Path" fill="url(#linearGradient-1)" points="76.8 24.48171 76.8 48.61581 52.4013 24.48171"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
