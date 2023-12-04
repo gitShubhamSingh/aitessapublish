@@ -4,7 +4,9 @@ WORKDIR /app/backend
 
 RUN echo $PWD
 
-RUN pip3 install -r requirements.txt
+COPY requirements.txt /app/backend
+
+RUN pip3 install -r /app/backend/requirements.txt
 
 COPY . /app/backend
 
