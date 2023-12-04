@@ -1,6 +1,8 @@
 FROM python:3.9
 
 WORKDIR /app/backend
+RUN import os
+RUN print(os.getcwd())
 RUN pip3 install -r requirements.txt
 
 COPY . /app/backend
