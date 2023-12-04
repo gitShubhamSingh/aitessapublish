@@ -1,4 +1,4 @@
-Jpipeline {
+pipeline {
 		agent any
 		stages{
 	        stage("cloneCode"){
