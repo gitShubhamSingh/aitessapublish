@@ -40,7 +40,7 @@ pipeline {
 	   stage("deletingUnusedDockerImage"){
 		steps{
 			echo "Flushing the unused container"
-			sh "docker system prune"
+			sh "docker image prune -a"
 		}	
 	   }
         }
