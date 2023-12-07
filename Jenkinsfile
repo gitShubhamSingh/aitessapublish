@@ -37,5 +37,11 @@ pipeline {
 	                sh "docker-compose down && docker-compose up -d"
                 }
             }
+	   stage("deletingUnusedDockerImage"){
+		steps{
+			echo "Flushing the unused container"
+			sh "docker system prune"
+		}	
+	   }
         }
     }
