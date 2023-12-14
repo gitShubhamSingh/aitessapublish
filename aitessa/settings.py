@@ -151,3 +151,5 @@ CORS_ALLOWED_ORIGINS = [
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'build/static')
 ]
+
+# Comment is for check the deployement is automatic happening or not 
