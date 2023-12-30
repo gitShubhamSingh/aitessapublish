@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 from pathlib import Path
 
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-2!))w$x^&k7^*d-mln_hrys6^q2_t_u@)2x5$$^(ak-2x-q^$b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','13.126.167.67','localhost','www.aitessa.com','aitessa.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','13.126.167.67','www.aitessa.com','aitessa.com']
 
 # pip install django-cors-headers
 CORS_ORIGIN_ALLOW_ALL = True
@@ -46,13 +50,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'apiApp',
-    'rest_framework'
+    'chat',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
