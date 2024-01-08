@@ -9,7 +9,7 @@ from . import models
 from . import serializers
 from . import chat
 
-
+from django.http import StreamingHttpResponse
 
 class IndexChat(APIView):
 
@@ -23,7 +23,7 @@ class IndexChat(APIView):
     def post(self, request):
         filePath = os.path.join(settings.BASE_DIR, 'uploads')
         for file in os.listdir(filePath):
-            if file == "spice.pdf":
+            if file == "aitessaDocs.pdf":
                 fileAddress = filePath+"/"+file
                 print(fileAddress)
                 createEmbeddings.createEmbeddingsForPdf(pdfId="01",pdfPath=fileAddress)
@@ -42,13 +42,43 @@ class AskChat(APIView):
         })
     
     def post(self, request):
+        # Building the chat module
         chatObject = chat.build_chat()
-        result = chatObject.run("who is shahrukh khan ?")
-        # print(result)
-        return Response({
-            "status":status.HTTP_200_OK,
-            "data":result
-        })
+
+    
+        # Calculating Query embedding 
+        try:
+            querryEmbeddingScore = createEmbeddings.createEmbeddingForQuerryAndGetScore(request.data['user'])
+        except Exception as e:
+            print('----')
+            querryEmbeddingScore ="timeout"
+        if querryEmbeddingScore == "timeout":
+
+            def streamTimeout(myString):
+                yield myString
+            
+            timeoutObject = streamTimeout("Text Embedding Ada Timeout")
+
+            return StreamingHttpResponse(timeoutObject)
+
+        elif querryEmbeddingScore > 0.78:  
+            result=""
+            
+            # result = chatObject.run(request.data['user'])
+            try:
+                streamObj =  chatObject.stream(request.data['user'])
+            except Exception as e:
+                print(str(e))
+            # return Response({
+            #     "role":"assistant",
+            #     "content":streamObj
+            # })
+            return StreamingHttpResponse(streamObj)
+               
+        else: 
+            result="Querry is Not Relevant to Ai Tessa."
+
+            return StreamingHttpResponse(result)
     
     
     

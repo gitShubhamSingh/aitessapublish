@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="68px" viewBox="0 0 64 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>angular-icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Frontend" transform="translate(-354.000000, -99.000000)" fill-rule="nonzero">
+            <g id="angular-icon" transform="translate(354.000000, 99.000000)">
+                <polygon id="Path" fill="#E23237" points="0 11.2707182 31.5749999 0 64 11.0703499 58.75 52.9222835 31.5749999 68 4.82499999 53.1226518"></polygon>
+                <polygon id="Path" fill="#B52E31" points="64 11.0703499 32 0 32 68 58.8188126 52.9473296"></polygon>
+                <path d="M31.528536,8 L31.528536,8 L12,51.8747154 L19.2952854,51.7494308 L23.2158809,41.8519363 L31.5533499,41.8519363 L31.5781639,41.8519363 L40.7344914,41.8519363 L45.0272954,51.8747154 L52,52 L31.528536,8 L31.528536,8 Z M31.5781639,22.0569476 L38.1786601,35.9886106 L31.8511168,35.9886106 L31.528536,35.9886106 L25.7717121,35.9886106 L31.5781639,22.0569476 L31.5781639,22.0569476 Z" id="Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

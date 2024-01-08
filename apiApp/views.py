@@ -3,15 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from . import serializers
 from rest_framework import status
-from django.core.mail import send_mail
 from django.conf import settings
 
-def send_mail_to_client():
-    subject = "Subject"
-    message = "Message                      "
-    from_email = settings.EMAIL_HOST_USER
-    reciever_email = ["ptcsam74@gmail.com"]
-    send_mail(subject, message, from_email, reciever_email)
 
 
 class Index(APIView):
@@ -21,11 +14,12 @@ class Index(APIView):
       
     
     def post(self, request, format=None):
-        print(request.data['name'])
+      
         serializer = serializers.ContactSerializers(data=request.data)
 
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
+         
+            # serializer.save()
             # email = EmailMessage(
             #     subject="Subject",
             #     body="body",
@@ -34,7 +28,15 @@ class Index(APIView):
             # email.content_subtype = "html"
             # email.body = "Email Body"
             # email.send()
-            send_mail_to_client()
+            data = {
+                "name":serializer.validated_data['name'],
+                "cName":serializer.validated_data['companyName'],
+                "email":serializer.validated_data['email'],
+                "additionalDetails":serializer.validated_data['additionalDetails']
+            }
+            from . import utils 
+            utils.Util.send_email(data)
+
 
             return Response(
                 {

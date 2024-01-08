@@ -8,9 +8,10 @@ from langchain.vectorstores.pinecone import Pinecone
 #Accessing embedding
 from chat.embeddings.openai import embedding
 
+from langchain.chains import MultiRetrievalQAChain
 
 
-
+# take pdf -> extract text -> create embedding -> store on pinecone
 def createEmbeddingsForPdf(pdfId:str, pdfPath:str):
    
     # Creating text splitter
@@ -34,5 +35,43 @@ def createEmbeddingsForPdf(pdfId:str, pdfPath:str):
         os.getenv("PINECONE_INDEX_NAME"),
         embedding
     )
-
+    
     vector_store.add_documents(docs)
+
+
+
+
+def createEmbeddingForQuerryAndGetScore(querry:str):
+
+    #Initialize Pinecone
+    pinecone.init(
+        api_key = os.getenv("PINECONE_API_KEY"),
+        environment= os.getenv("PINECONE_ENV_NAME")
+    )
+
+    # Getting index
+    index = pinecone.Index(index_name="docs")
+    
+    # Creating Query embedding
+    # print('querryEmbedding:-', )
+    queryEmbedding = embedding.embed_query(querry)
+    # print('Embedding Created')
+   
+    response = index.query(vector=[queryEmbedding], top_k=2, include_values=True)
+    try:
+        # print('----',type(response.to_dict()['matches'][0]['score']))
+        if type(response.to_dict()['matches'][0]['score']) == float:
+            score = response.to_dict()['matches'][0]['score']
+        else:
+            score=0
+    except Exception as e:
+        # print(str(e))
+        score=0
+   
+    
+    return score
+
+  
+
+    
+
