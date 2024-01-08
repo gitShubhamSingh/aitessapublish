@@ -5,7 +5,8 @@ from chat.llms.chatopenai import build_llm
 import os
 import pinecone
 from langchain.vectorstores.pinecone import Pinecone 
-
+from dotenv import load_dotenv
+load_dotenv()
 #Accessing embedding
 from chat.embeddings.openai import embedding
 

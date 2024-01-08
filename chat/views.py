@@ -8,7 +8,8 @@ from . import createEmbeddings
 from . import models
 from . import serializers
 from . import chat
-
+from dotenv import load_dotenv
+load_dotenv()
 from django.http import StreamingHttpResponse
 
 class IndexChat(APIView):

@@ -1,6 +1,7 @@
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import pinecone
 from langchain.vectorstores.pinecone import Pinecone 
