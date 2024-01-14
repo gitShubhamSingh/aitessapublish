@@ -46,7 +46,6 @@ class AskChat(APIView):
         # Building the chat module
         chatObject = chat.build_chat()
 
-    
         # Calculating Query embedding 
         try:
             querryEmbeddingScore = createEmbeddings.createEmbeddingForQuerryAndGetScore(request.data['user'])

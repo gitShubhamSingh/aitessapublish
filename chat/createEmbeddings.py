@@ -56,7 +56,7 @@ def createEmbeddingForQuerryAndGetScore(querry:str):
     # Creating Query embedding
     # print('querryEmbedding:-', )
     queryEmbedding = embedding.embed_query(querry)
-    # print('Embedding Created')
+    # print('Embedding Created', queryEmbedding)
    
     response = index.query(vector=[queryEmbedding], top_k=2, include_values=True)
     try:
